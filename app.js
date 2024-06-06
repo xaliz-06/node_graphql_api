@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 app.use(auth);
 
 app.put("/post-image", (req, res, next) => {
-  if (!req.file) {
+  if (!req.isAuth) {
     const error = new Error("Not authenticated!");
     error.code = 401;
     throw error;
